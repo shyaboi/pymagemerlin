@@ -30,8 +30,8 @@ def index():
 @app.route('/', methods=['POST'])
 def upload_files():
     uploaded_file = request.files['file']
-    qual = request.form['slider']
-
+    qual = int(request.form['slider'])
+    print(qual)
     filename = secure_filename(uploaded_file.filename)
     if filename != '':
         file_ext = os.path.splitext(filename)[1]
