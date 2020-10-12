@@ -4,7 +4,8 @@ from flask import Flask, render_template, request, redirect, url_for, abort, \
     send_from_directory
 from werkzeug.utils import secure_filename
 from uploads.imgMerlin import imgSmush
-# mostly stolen from https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask
+
+
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 2 * 8024 * 8024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
