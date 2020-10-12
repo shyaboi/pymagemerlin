@@ -9,7 +9,6 @@ app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 2 * 8024 * 8024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 app.config['UPLOAD_PATH'] = 'uploads'
-
 def validate_image(stream):
     header = stream.read(512)
     stream.seek(0)
@@ -30,6 +29,8 @@ def index():
 @app.route('/', methods=['POST'])
 def upload_files():
     uploaded_file = request.files['file']
+    qual = request.form['slider']
+
     filename = secure_filename(uploaded_file.filename)
     if filename != '':
         file_ext = os.path.splitext(filename)[1]
@@ -37,7 +38,7 @@ def upload_files():
                 file_ext != validate_image(uploaded_file.stream):
             return "Invalid image", 400
         uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
-    imgSmush(filename)
+    imgSmush(filename, qual)
     print(f"{filename} has been uploaded and smushed")
     return '', 204
 

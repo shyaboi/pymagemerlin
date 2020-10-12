@@ -7,7 +7,6 @@ from pathlib import Path
 def imgSmush(importPic, qual):
     img = str(Path("uploads/"+importPic))
     print(img)
-    time.sleep(2)
     picture = Image.open(img)
-    picture.save("static/compressed/compresses"+ qual + importPic ,optimize=True,quality=15) 
-
+    picture.save(f"static/compressed/compressed{qual}" + importPic ,optimize=True,quality=qual)
+    picture.save(f"static/originials/original" + importPic ,optimize=True,quality=100)

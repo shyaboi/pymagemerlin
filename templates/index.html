@@ -6,9 +6,9 @@
   <body>
     <h1>File Upload</h1>
     <form action="{{ url_for('upload_files') }}" class="dropzone" aria-placeholder="Drop yo files here fool!">
+        <input id="slider" name="slider" type="range" value=0>
+        <label for="slider">0</label>
     </form>
-    <input id="slider" name="slider" type="range" value=0>
-<label for="slider">0</label>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
   <script src="../static/js.js"></script>
   <script src="../static/style.css"></script>
