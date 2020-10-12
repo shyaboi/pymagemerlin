@@ -1,5 +1,5 @@
 from PIL import Image
-from flask import Flask, url_for, request, render_template
+from flask import Flask, url_for, request, redirect, render_template
 app = Flask(__name__)
 # dir(Image)
 img = 'layer 2 coloroed and smudged.jpg'
