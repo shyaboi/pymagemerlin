@@ -41,7 +41,15 @@ def upload_files():
         uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
     imgSmush(filename, qual)
     print(f"{filename} has been uploaded and smushed")
-    return '', 204
+    return render_template('index.html', filename=filename)
+
+
+@app.route('/pics')
+def portfolio():
+    images = os.listdir(os.path.join(app.static_folder, "compressed"))
+    print(images)
+    return render_template('gallery.html', images=images)
+
 
 @app.route('/uploads/<filename>')
 def upload(filename):

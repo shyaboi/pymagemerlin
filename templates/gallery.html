@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nuked Gallery</h1>
+    <section class="row">
+        {% for image in images %}
+          <section class="col-md-4 col-sm-6" style="background-color: green;">
+            <img src="{{ url_for('static', filename='compressed/' + image) }}">{{ image }}</img>
+          </section>
+        {% endfor %}
+      </section>
+</body>
+</html>
