@@ -9,7 +9,7 @@
     <h1>Nuked Gallery</h1>
     <section class="row">
         {% for image in images %}
-          <section class="col-md-4 col-sm-6" style="background-color: green;">
+          <section class="col-md-4 col-sm-6">
             <img src="{{ url_for('static', filename='compressed/' + image) }}">{{ image }}</img>
           </section>
         {% endfor %}
